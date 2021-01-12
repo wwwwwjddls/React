@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+    <title>Cp-ImageText</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const root = document.getElementById('root') 
+        const dom  = <div>
+                         <PhotoText img="pic1" label="오키나와에서의 하루" />
+                         <PhotoText img="pic2" label="오키나와 해변" />
+                         <PhotoText img="pic3" label="푸른 바다" />
+                     </div>
+        
+        ReactDOM.render(dom, root)
+
+        //function Component
+        function PhotoText(props) {
+            const label = props.label
+            const url   = 'img/' + props.img + '.jpeg'
+            const boxStyle = {
+                border: '1px solid silver',
+                margin: '8px',
+                padding: '4px'
+            }
+
+            return <div style={boxStyle}>
+                        <img src={url} width="128" />
+                        <span>{label}</span>
+                   </div>
+        }
+    </script>
+</body>
+</html>
