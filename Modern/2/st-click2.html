@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+    <title>St-Click2</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        class Hello extends React.Component {
+            constructor(props) {
+                super(props)
+                
+                // 이벤트 핸들러의 this 설정
+                this.clickHandler =this.clickHandler.bind(this)
+            }
+
+            clickHandler(e) {
+                const name = this.props.name
+                return window.alert(`${name}님 안녕하세요`)
+            }
+
+            render() {
+                return <div onClick={this.clickHandler}>Click Me</div>
+            }
+        }
+
+        ReactDOM.render( 
+            <Hello name="윤인성" />,
+            document.getElementById('root')
+        )
+    </script>
+</body>
+</html>
